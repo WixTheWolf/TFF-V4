@@ -1,0 +1,557 @@
+diff --git a/app/applications/page.tsx b/app/applications/page.tsx
+index 411333f5db5f978d62b9f1987d3aca3eea8e74a5..56cb48ffa92c49d2049b55715927852d3c0bb9df 100644
+--- a/app/applications/page.tsx
++++ b/app/applications/page.tsx
+@@ -1,41 +1,42 @@
+ import { Footer } from "@/components/footer";
+ import { Header } from "@/components/header";
+ import { applications } from "@/components/site-data";
+ import { SectionEyebrow, SectionHeading } from "@/components/ui";
+ 
+ export default function ApplicationsPage() {
+   return (
+     <>
+       <Header />
+       <main>
+         <section className="section" style={{ paddingTop: 48 }}>
+           <div className="container">
+             <SectionEyebrow>Applications</SectionEyebrow>
+             <SectionHeading>Practical product formats we support.</SectionHeading>
+             <p className="section-subtext" style={{ marginTop: 16, maxWidth: 840 }}>
+-              Applications are product formats and delivery systems. Markets are customer worlds. This page focuses on the format side of your project.
++              Start with the product format. We can help with liquid, powder, beverage, gummy, bakery, dairy, oral care,
++              pharmaceutical, savory, and more.
+             </p>
+           </div>
+         </section>
+ 
+         <section className="section" style={{ paddingTop: 8 }}>
+           <div className="container application-grid">
+             {applications.map((item) => (
+               <div key={item.name} className="application-card application-card-tight">
+                 <img src={item.image} alt={item.name} />
+                 <div>{item.name}</div>
+               </div>
+             ))}
+           </div>
+         </section>
+ 
+         <section className="section" style={{ paddingTop: 8, paddingBottom: 80 }}>
+           <div className="container showcase">
+             <SectionEyebrow>Next step</SectionEyebrow>
+             <SectionHeading>Tell us your format, then we can match flavor direction.</SectionHeading>
+             <p className="section-subtext" style={{ marginTop: 16, maxWidth: 760 }}>
+               We help teams choose liquid or powder systems based on process, taste target, and shelf-life needs.
+             </p>
+             <a href="/contact" className="cta-btn" style={{ marginTop: 22 }}>Request Samples</a>
+           </div>
+         </section>
+diff --git a/app/globals.css b/app/globals.css
+index 398e16268a1f4934cfb32bdabbf0823d3f1117d2..345566299f6cfafe088cf063dc64dfec8c024636 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -79,98 +79,98 @@ button, input, textarea, select { font: inherit; }
+   text-transform: uppercase; letter-spacing: .05em; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+   border: 0; cursor: pointer;
+ }
+ .cta-btn { background: var(--brand); color: white; box-shadow: 0 16px 36px rgba(213,43,30,.22); }
+ .dark-btn { background: var(--brand-dark); color: white; box-shadow: 0 16px 36px rgba(16,24,40,.18); }
+ .light-btn { background: white; color: var(--text); border: 1px solid var(--border); }
+ .cta-btn:hover, .dark-btn:hover, .light-btn:hover { transform: translateY(-2px); }
+ 
+ .mobile-toggle { display: none; }
+ .mobile-panel { display: none; }
+ 
+ .hero {
+   position: relative;
+   overflow: hidden;
+   background:
+     radial-gradient(circle at 10% 10%, rgba(213,43,30,0.12), transparent 22%),
+     radial-gradient(circle at 85% 12%, rgba(245,158,11,0.12), transparent 20%),
+     radial-gradient(circle at 50% 100%, rgba(15,23,42,0.05), transparent 35%),
+     var(--bg);
+ }
+ .hero-grid {
+   display: grid;
+   grid-template-columns: .96fr 1.04fr;
+   gap: 34px;
+   align-items: center;
+-  padding: 44px 0 68px;
++  padding: 30px 0 52px;
+ }
+ .hero-kicker {
+   display: inline-flex;
+   align-items: center;
+   gap: 10px;
+   border: 1px solid var(--border);
+   background: rgba(255,255,255,.75);
+   padding: 10px 16px;
+   border-radius: 999px;
+   text-transform: uppercase;
+   letter-spacing: .18em;
+   font-size: 12px;
+   font-weight: 700;
+   color: rgba(17,17,17,.6);
+ }
+ .hero-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--brand); }
+ .hero-title {
+   margin: 18px 0 0;
+   max-width: 780px;
+-  font-size: clamp(2.6rem, 5.2vw, 5.4rem);
++  font-size: clamp(2.2rem, 4.2vw, 4.2rem);
+   line-height: .94;
+   font-weight: 900;
+   letter-spacing: -0.05em;
+   color: #0f172a;
+ }
+ .hero-title .accent { display: block; color: var(--brand); font-style: italic; }
+ .hero-text {
+-  margin-top: 24px;
++  margin-top: 18px;
+   max-width: 640px;
+-  font-size: 1.15rem;
+-  line-height: 1.95;
++  font-size: 1.05rem;
++  line-height: 1.7;
+   color: var(--muted);
+ }
+ .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
+ .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 34px; max-width: 760px; }
+ .stat-card {
+   background: rgba(255,255,255,.8);
+   border: 1px solid var(--border);
+   border-radius: 24px;
+   padding: 18px 20px;
+   box-shadow: var(--shadow);
+ }
+ .stat-value { font-size: 2rem; font-weight: 900; line-height: 1; color: #0f172a; }
+ .stat-label { margin-top: 8px; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: rgba(17,17,17,.5); }
+ .hero-media {
+   position: relative;
+-  min-height: 620px;
++  min-height: 500px;
+   overflow: hidden;
+   border-radius: 42px;
+   border: 1px solid rgba(255,255,255,.6);
+   background: white;
+   box-shadow: 0 35px 100px rgba(17,24,39,.14);
+ }
+ .hero-media > img { width: 100%; height: 100%; object-fit: cover; }
+ .floating-tags { position: absolute; top: 28px; left: 28px; right: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+ .floating-tag {
+   border-radius: 999px; padding: 10px 16px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em;
+   backdrop-filter: blur(10px);
+ }
+ .floating-tag.light { border: 1px solid rgba(255,255,255,.45); background: rgba(255,255,255,.55); color: #0f172a; }
+ .floating-tag.brand { border: 1px solid rgba(213,43,30,.18); background: rgba(213,43,30,.10); color: #8a1f17; }
+ .hero-bottom-cards { position: absolute; left: 20px; right: 20px; bottom: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+ .glass-card {
+   border-radius: 18px;
+   padding: 14px 16px;
+   background: rgba(255,255,255,.55);
+   border: 1px solid rgba(255,255,255,.35);
+   backdrop-filter: blur(10px);
+   box-shadow: 0 10px 24px rgba(17,24,39,.08);
+   color: #0f172a;
+   font-size: 14px;
+   font-weight: 700;
+@@ -343,43 +343,44 @@ button, input, textarea, select { font: inherit; }
+   .mobile-links { display: flex; flex-direction: column; padding: 10px 0 20px; }
+   .mobile-links a { padding: 16px 0; border-bottom: 1px solid rgba(17,17,17,.05); font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: rgba(17,17,17,.75); }
+   .mobile-links a:last-child { border-bottom: 0; }
+   .banner-grid, .hero-bottom-cards, .filter-grid, .quality-grid, .footer-grid, .path-grid, .strength-grid, .application-grid { grid-template-columns: 1fr; }
+   .stat-grid { grid-template-columns: repeat(2, 1fr); }
+   .flavor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+   .form-grid { grid-template-columns: 1fr; }
+   .textarea { grid-column: span 1; }
+   .container { width: min(1600px, calc(100% - 32px)); }
+   .logo .large { font-size: 2.3rem; }
+ }
+ 
+ @media (max-width: 640px) {
+   .flavor-grid { grid-template-columns: 1fr; }
+   .hero-media { min-height: 420px; }
+   .sample-left, .quality, .showcase, .finder-grid, .banner-grid { padding-left: 22px; padding-right: 22px; }
+   .floating-tags { left: 16px; top: 16px; right: 16px; }
+   .bottom-copy { left: 22px; right: 22px; bottom: 22px; }
+ }
+ 
+ 
+ .flavor-tools { margin-top: 20px; display: grid; gap: 14px; }
+ .flavor-family-filters { margin-top: 2px; }
+ .flavor-grid-tight { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+ .flavor-card-tight { border-radius: 20px; }
++.flavor-card-tight .flavor-overlay { background: linear-gradient(to top, rgba(0,0,0,.6), transparent 58%); }
+ .flavor-card-tight .flavor-content { left: 14px; right: 14px; bottom: 14px; }
+ .flavor-card-tight .flavor-family { top: 12px; left: 12px; right: 12px; }
+-.flavor-card-tight img { height: 170px; }
++.flavor-card-tight img { height: 132px; }
+ .flavor-tag-row { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+ .flavor-tag { border: 1px solid rgba(255,255,255,.24); border-radius: 999px; padding: 4px 7px; font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+ .application-card-tight { border-radius: 20px; }
+ 
+ @media (max-width: 1200px) {
+   .flavor-grid-tight { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+ }
+ 
+ @media (max-width: 900px) {
+   .flavor-grid-tight { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ }
+ 
+ @media (max-width: 640px) {
+   .flavor-grid-tight { grid-template-columns: 1fr; }
+ }
+diff --git a/app/page.tsx b/app/page.tsx
+index f70deabe9efbc396eb7d4102b80aeabeb81af8ea..68ced7e652126d2ae53b17174d865e210620ad99 100644
+--- a/app/page.tsx
++++ b/app/page.tsx
+@@ -49,145 +49,136 @@ export default function HomePage() {
+       },
+     };
+ 
+     return {
+       title: `${selectedFormat} + ${selectedApplication}`,
+       body: lines[selectedFormat][selectedGoal],
+       next: `Recommended next step: request a ${selectedFormat.toLowerCase()} sample for ${selectedApplication.toLowerCase()}.`,
+     };
+   }, [selectedApplication, selectedFormat, selectedGoal]);
+ 
+   const updateField = (key: keyof typeof sampleForm, value: string) => {
+     setSampleForm((prev) => ({ ...prev, [key]: value }));
+   };
+ 
+   return (
+     <>
+       <Header />
+       <main>
+         <section className="hero">
+           <div className="container hero-grid">
+             <div>
+               <div className="hero-kicker">
+                 <span className="hero-dot" /> Family-Owned Flavor Manufacturing • Norco, California
+               </div>
+               <h1 className="hero-title">
+-                Custom flavors for products that need to launch <span className="accent serif">on schedule.</span>
++                Custom Liquid &amp; Powder Flavors
++                <span className="accent serif">Built for Real Products.</span>
+               </h1>
+               <p className="hero-text">
+-                The Flavor Factory develops liquid and powder flavors for brands and manufacturers. We support fast sample cycles,
+-                low minimums, and production-ready quality.
++                We help brands and manufacturers develop flavor systems that taste right, work in the application, and are ready for
++                production.
+               </p>
+               <div className="hero-actions">
+                 <a href="/contact" className="dark-btn">Request Samples</a>
+                 <a href="/industries" className="light-btn">View Markets</a>
+               </div>
+               <div className="stat-grid">
+                 {[
+                   { value: "3-5", label: "business days for samples" },
+                   { value: "Low", label: "minimum order options" },
+                   { value: "2", label: "formats: liquid + powder" },
+                   { value: "100%", label: "family-owned operation" },
+                 ].map((item) => (
+                   <div key={item.label} className="stat-card">
+                     <div className="stat-value">{item.value}</div>
+                     <div className="stat-label">{item.label}</div>
+                   </div>
+                 ))}
+               </div>
+             </div>
+ 
+             <div className="hero-media">
+               <img src="/images/flavor-factory/hero-main.jpg" alt="Flavor development and manufacturing workspace" />
+-              <div className="floating-tags">
+-                {["citrus systems", "vanilla profiles", "cooling mint", "berry blends", "caramel depth", "masking support"].map((item, i) => (
+-                  <div key={item} className={`floating-tag ${i % 2 === 0 ? "light" : "brand"}`}>{item}</div>
+-                ))}
+-              </div>
+-              <div className="hero-bottom-cards">
+-                {["Fast sample turnaround", "Liquid and powder capabilities", "Direct communication"].map((item) => (
+-                  <div key={item} className="glass-card">{item}</div>
+-                ))}
+-              </div>
+             </div>
+           </div>
+         </section>
+ 
+         <section className="section" style={{ paddingTop: 20 }}>
+           <div className="container banner-grid">
+             {[
+-              ["Family-Owned Team", "Work directly with people who manage flavor development and production every day."],
+-              ["Custom Flavor Matching", "Share your target profile and we will build toward your product goals."],
+-              ["Low Minimums", "Start with practical order sizes while you validate your formula and market."],
+-              ["Production Focus", "From sample to scale, we plan for dependable manufacturing performance."],
++              ["Liquid & Powder Capabilities", "Built for both liquid and powder systems with development support for each format."],
++              ["Application Support", "Flavor recommendations are matched to your product format, process, and use case."],
++              ["Fast Sample Support", "Short sample timelines help your team test and decide quickly."],
++              ["Low Minimums & Scale Support", "Start with lower quantities, then scale with the same team as demand grows."],
+             ].map(([title, text]) => (
+               <div key={title} className="banner-card">
+                 <h3>{title}</h3>
+                 <p>{text}</p>
+               </div>
+             ))}
+           </div>
+         </section>
+ 
+         <section id="pathways" className="section">
+           <div className="container">
+             <div className="section-head">
+               <div>
+                 <SectionEyebrow>Markets</SectionEyebrow>
+-                <SectionHeading>Industries we support every week.</SectionHeading>
++                <SectionHeading>Markets We Serve</SectionHeading>
+               </div>
+-              <p className="section-subtext">Select your market to review priorities, common product lines, and how we support development.</p>
++              <p className="section-subtext">Choose your market to see how we support different product types, timelines, and production needs.</p>
+             </div>
+ 
+             <div className="path-grid">
+               {pathways.map((item) => {
+                 const Icon = item.icon;
+                 return (
+                   <a key={item.title} href={item.href} className="path-card">
+                     <img src={item.image} alt={item.title} />
+                     <div className="path-overlay" />
+                     <div className="path-tag"><Icon size={14} /> {item.tag}</div>
+                     <div className="path-content">
+                       <h3>{item.title}</h3>
+                       <p>{item.subtitle}</p>
+                       <div className="mini-link">View Market <ChevronRight size={14} /></div>
+                     </div>
+                   </a>
+                 );
+               })}
+             </div>
+           </div>
+         </section>
+ 
+         <section id="finder" className="section">
+           <div className="container finder">
+             <div className="finder-grid">
+               <div>
+                 <SectionEyebrow>Flavor Finder</SectionEyebrow>
+-                <h2 className="section-title" style={{ color: "white", marginTop: 16 }}>Find a starting direction in seconds.</h2>
++                <h2 className="section-title" style={{ color: "white", marginTop: 16 }}>Find a Starting Direction</h2>
+                 <p className="section-subtext" style={{ color: "rgba(255,255,255,.75)", marginTop: 20 }}>
+-                  Choose your format, technical goal, and application format. We will show a practical starting point for samples.
++                  Choose a format, goal, and application to get a practical sample direction.
+                 </p>
+                 <div className="finder-card" style={{ marginTop: 24 }}>
+                   <div className="filter-group-title" style={{ display: "flex", alignItems: "center", gap: 8 }}><Search size={14} /> Quick setup</div>
+                   <div style={{ fontSize: "1.2rem", fontWeight: 700 }}>Set your needs, review the suggested direction, then contact our team.</div>
+                 </div>
+               </div>
+ 
+               <div className="finder-card">
+                 <div className="filter-grid">
+                   <div>
+                     <div className="filter-group-title">Format</div>
+                     <div className="filter-pills">
+                       {formatOptions.map((item) => (
+                         <button key={item} className={`filter-pill ${selectedFormat === item ? "active" : ""}`} onClick={() => setSelectedFormat(item)}>{item}</button>
+                       ))}
+                     </div>
+                   </div>
+                   <div>
+                     <div className="filter-group-title">Goal</div>
+                     <div className="filter-pills">
+                       {goalOptions.map((item) => (
+                         <button key={item} className={`filter-pill ${selectedGoal === item ? "active" : ""}`} onClick={() => setSelectedGoal(item)}>{item}</button>
+                       ))}
+                     </div>
+                   </div>
+@@ -251,102 +242,103 @@ export default function HomePage() {
+             </div>
+ 
+             <div className="flavor-grid">
+               {flavorTiles.map((tile) => (
+                 <a key={tile.name} href="/flavors" className="flavor-card">
+                   <img src={tile.image} alt={tile.name} />
+                   <div className="flavor-overlay" />
+                   <div className="flavor-family">
+                     <div className="flavor-badge">{tile.family}</div>
+                   </div>
+                   <div className="flavor-content">
+                     <h3>{tile.name}</h3>
+                     <div className="mini-link">View Library <ChevronRight size={14} /></div>
+                   </div>
+                 </a>
+               ))}
+             </div>
+           </div>
+         </section>
+ 
+         <section className="section">
+           <div className="container showcase">
+             <div className="showcase-grid">
+               <div>
+                 <SectionEyebrow>Applications</SectionEyebrow>
+-                <SectionHeading>Formats we flavor.</SectionHeading>
++                <SectionHeading>Applications &amp; Formats</SectionHeading>
+                 <p className="section-subtext" style={{ marginTop: 16 }}>
+-                  Our application work is format-specific: RTD beverages, gummies, syrups, powders, seasonings, and more.
++                  Start with the product format. We can help with liquid, powder, beverage, gummy, bakery, dairy, oral care,
++                  pharmaceutical, savory, and more.
+                 </p>
+                 <div className="showcase-pills">
+                   {applicationOptions.map((item) => (
+                     <span key={item} className="soft-pill">{item}</span>
+                   ))}
+                 </div>
+                 <a href="/applications" className="cta-btn" style={{ marginTop: 22 }}>View Applications</a>
+               </div>
+ 
+               <div className="application-grid">
+                 {applications.map((item) => (
+                   <div key={item.name} className="application-card">
+                     <img src={item.image} alt={item.name} />
+                     <div>{item.name}</div>
+                   </div>
+                 ))}
+               </div>
+             </div>
+           </div>
+         </section>
+ 
+         <section id="quality" className="section">
+           <div className="container quality">
+             <div className="quality-top">
+               <div>
+                 <SectionEyebrow>Quality standards</SectionEyebrow>
+                 <h2 className="section-title" style={{ color: "white" }}>Quality systems built for dependable production.</h2>
+                 <p className="section-subtext" style={{ color: "rgba(255,255,255,.72)", marginTop: 16, maxWidth: 760 }}>
+                   We keep documentation, process controls, and manufacturing discipline in place so flavors stay consistent from batch to batch.
+                 </p>
+               </div>
+-              <a href="/contact" className="light-btn">Ask About Certifications</a>
++              <a href="/contact" className="light-btn">Ask About Documentation</a>
+             </div>
+             <div className="quality-grid">
+               {qualityBadges.map((item) => (
+                 <div key={item} className="quality-badge">{item}</div>
+               ))}
+             </div>
+           </div>
+         </section>
+ 
+         <section id="samples" className="section" style={{ paddingBottom: 80 }}>
+           <div className="container sample-panel">
+             <div className="sample-grid">
+               <div className="sample-left">
+                 <SectionEyebrow>Request Samples</SectionEyebrow>
+-                <SectionHeading>Tell us what you are making. We will recommend next samples.</SectionHeading>
++                <SectionHeading>Tell us what you’re making.</SectionHeading>
+                 <p className="section-subtext" style={{ marginTop: 16, maxWidth: 560 }}>
+-                  Share your market, target flavor, and timeline. Our team will follow up with practical sample options.
++                  Send your product type, target flavor, format, and timeline. We’ll review the project and help with next steps.
+                 </p>
+                 <div className="form-grid">
+                   <input value={sampleForm.industry} onChange={(e) => updateField("industry", e.target.value)} aria-label="Market" className="input" />
+                   <input value={sampleForm.format} onChange={(e) => updateField("format", e.target.value)} aria-label="Liquid or powder" className="input" />
+                   <input value={sampleForm.flavor} onChange={(e) => updateField("flavor", e.target.value)} aria-label="Target flavor" className="input" />
+                   <input value={sampleForm.application} onChange={(e) => updateField("application", e.target.value)} aria-label="Product format" className="input" />
+                   <input value={sampleForm.timeline} onChange={(e) => updateField("timeline", e.target.value)} aria-label="Timeline" className="input" />
+                   <textarea value={sampleForm.message} onChange={(e) => updateField("message", e.target.value)} aria-label="Project notes" className="textarea" />
+                 </div>
+                 <div className="sample-utility">
+                   <button className="cta-btn">Send Sample Request</button>
+                   <div style={{ fontSize: 14, color: "rgba(17,17,17,.5)" }}>Fast response from a real team.</div>
+                 </div>
+               </div>
+ 
+               <div className="sample-right">
+                 <img src="/images/flavor-factory/cta-background.jpg" alt="Flavor ingredients and formulation background" />
+                 <div className="sample-overlay" />
+                 <div className="top-tags">
+                   {["Low minimums", "Custom flavor matching", "Production-ready quality"].map((tag) => (
+                     <div key={tag} className="flavor-badge">{tag}</div>
+                   ))}
+                 </div>
+                 <div className="bottom-copy">
+                   <div className="eyebrow" style={{ color: "#f59e0b" }}>Start your sample request</div>
+diff --git a/components/footer.tsx b/components/footer.tsx
+index 53777ab0c0e609651148402f48a5330bd4231d3a..d8c0392debaee040858e56ff40e3eb2a5fccb97c 100644
+--- a/components/footer.tsx
++++ b/components/footer.tsx
+@@ -1,39 +1,39 @@
+ import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+ import { navLinks } from "./site-data";
+ 
+ export function Footer() {
+   return (
+     <footer className="footer">
+       <div className="container footer-grid">
+         <div>
+           <div className="logo serif">
+             <div className="small">The</div>
+             <div className="large">FlavorFactory</div>
+           </div>
+           <p className="footer-copy">
+-            Family-owned flavor manufacturing with modern capabilities, clean execution, and a faster path from idea to sample.
++            Family-owned flavor manufacturing in Norco, California. Custom liquid and powder flavors with direct, practical support.
+           </p>
+           <div className="socials">
+             <a href="#" aria-label="Instagram"><Instagram size={18} /></a>
+             <a href="#" aria-label="LinkedIn"><Linkedin size={18} /></a>
+           </div>
+         </div>
+ 
+         <div>
+           <div className="eyebrow">Explore</div>
+           <div className="footer-links">
+             {navLinks.map((link) => (
+               <a key={link.href} href={link.href}>{link.label}</a>
+             ))}
+           </div>
+         </div>
+ 
+         <div>
+           <div className="eyebrow">Contact</div>
+           <div className="contact-lines">
+             <div><MapPin size={16} style={{ marginTop: 2, flexShrink: 0 }} /> <span>2058 Second Street, Norco, CA 92860</span></div>
+             <div><Phone size={16} style={{ flexShrink: 0 }} /> <span>(951) 273-9877</span></div>
+             <div><Mail size={16} style={{ flexShrink: 0 }} /> <span>info@flavorfactory.net</span></div>
+           </div>
+         </div>
+ 
+diff --git a/components/site-data.ts b/components/site-data.ts
+index a2cba5185a50e49de4d94c3a662dc943d5562c10..40e2c5604c8311ea22484d680f6cb0fb3853ae13 100644
+--- a/components/site-data.ts
++++ b/components/site-data.ts
+@@ -115,26 +115,32 @@ export const applications = [
+   { name: "Confectionery Pieces", image: "/images/flavor-factory/application-confectionery.jpg" },
+   { name: "Nutraceutical Powders", image: "/images/flavor-factory/application-nutraceutical.jpg" },
+   { name: "Oral Care Products", image: "/images/flavor-factory/application-oral-care.jpg" },
+   { name: "Pharmaceutical Syrups", image: "/images/flavor-factory/application-pharmaceutical.jpg" },
+   { name: "Gummies & Chews", image: "/images/flavor-factory/application-gummy.jpg" },
+   { name: "Snack Seasonings", image: "/images/flavor-factory/application-popcorn.jpg" },
+   { name: "Dairy Systems", image: "/images/flavor-factory/application-dairy.jpg" },
+   { name: "Sauces & Savory Bases", image: "/images/flavor-factory/application-sauces-savory.jpg" },
+ ];
+ 
+ export const formatOptions = ["Liquid", "Powder"];
+ export const goalOptions = ["Masking", "Sweetness Support", "Cooling", "Top Notes", "Creamy Body", "Fruit Profiles"];
+ export const applicationOptions = [
+   "RTD Beverages",
+   "Dry Mixes",
+   "Gummies",
+   "Hard Candy",
+   "Bakery Fillings",
+   "Dairy Bases",
+   "Snack Seasonings",
+   "Syrups",
+   "Chewables",
+   "Oral Care",
+ ];
+ 
+-export const qualityBadges = ["GMP", "ISO 22000", "Halal", "Kosher", "FDA Registered"];
++export const qualityBadges = [
++  "Batch Documentation",
++  "Specification Support",
++  "Lot Traceability",
++  "Quality Review Process",
++  "Project Documentation by Request",
++];
